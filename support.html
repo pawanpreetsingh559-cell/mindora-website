@@ -609,7 +609,10 @@
         }
 
         @media(max-width:900px) {
-            .logo-subtitle { display: none; }
+            .logo-subtitle {
+                display: none;
+            }
+
             .mobile-menu-btn {
                 display: block;
             }
@@ -633,6 +636,7 @@
                 transition: all 0.4s ease;
                 z-index: -1;
             }
+
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
@@ -685,11 +689,13 @@
                 max-width: 100%;
                 box-sizing: border-box;
             }
+
             .email-btn svg {
                 width: 16px;
                 height: 16px;
                 flex-shrink: 0;
             }
+
             .email-cta h2 {
                 font-size: 2.5rem;
             }
@@ -712,7 +718,8 @@
             <a href="index.html#download" class="nav-cta">Download</a>
         </div>
         <div class="mobile-menu-btn" id="mobileMenuBtn">
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
                 <line x1="3" y1="12" x2="21" y2="12"></line>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -902,7 +909,8 @@
             <div class="footer-col-brand">
                 <div class="footer-brand">
                     <img src="logo.jpeg" alt="Mindora Logo" class="nav-logo-img" onerror="this.style.display='none'">
-                    <span class="logo">Mindora<span class="logo-subtitle"> - Personal Mental Wellness Companion</span></span>
+                    <span class="logo">Mindora<span class="logo-subtitle"> - Personal Mental Wellness
+                            Companion</span></span>
                 </div>
                 <p class="footer-desc">A premium, native iOS mental wellness companion. Find profound peace in
                     micro-moments.</p>
