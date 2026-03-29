@@ -1,16 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="logo.jpeg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support – Mindora - Personal Mental Wellness Companion</title>
-    <meta name="description" content="Get help with Mindora - Personal Mental Wellness Companion. Browse FAQs, troubleshoot common issues, and contact the iCODE SQUAD team directly.">
+    <meta name="description"
+        content="Get help with Mindora - Personal Mental Wellness Companion. Browse FAQs, troubleshoot common issues, and contact the iCODE SQUAD team directly.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
     <style>
-        :root{--bg-light:#FCF8F5;--accent-blue:#4FACFE;--accent-green:#00F2FE;--aura-purple:#B478FF;--aura-pink:#FF9CEE;--text-dark:#0B192C;--text-grey:#64748B;--glass-bg:rgba(252,248,245,.88);--glass-border:rgba(11,25,44,.08)}
-        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
-        body{font-family:'Inter',system-ui,sans-serif;background-color:var(--bg-light);background-image:radial-gradient(circle at 15% 20%,rgba(79,172,254,.05) 0%,transparent 40%),radial-gradient(circle at 85% 60%,rgba(0,242,254,.05) 0%,transparent 40%),radial-gradient(circle at 50% 80%,rgba(180,120,255,.04) 0%,transparent 50%),linear-gradient(rgba(11,25,44,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(11,25,44,.015) 1px,transparent 1px);background-size:100vw 100vh,100vw 100vh,100vw 100vh,40px 40px,40px 40px;background-attachment:fixed;color:var(--text-dark);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+        :root {
+            --bg-light: #FCF8F5;
+            --accent-blue: #4FACFE;
+            --accent-green: #00F2FE;
+            --aura-purple: #B478FF;
+            --aura-pink: #FF9CEE;
+            --text-dark: #0B192C;
+            --text-grey: #64748B;
+            --glass-bg: rgba(252, 248, 245, .88);
+            --glass-border: rgba(11, 25, 44, .08)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg-light);
+            background-image: radial-gradient(circle at 15% 20%, rgba(79, 172, 254, .05) 0%, transparent 40%), radial-gradient(circle at 85% 60%, rgba(0, 242, 254, .05) 0%, transparent 40%), radial-gradient(circle at 50% 80%, rgba(180, 120, 255, .04) 0%, transparent 50%), linear-gradient(rgba(11, 25, 44, .015) 1px, transparent 1px), linear-gradient(90deg, rgba(11, 25, 44, .015) 1px, transparent 1px);
+            background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased
+        }
+
         /* NAV */
         nav {
             display: flex;
@@ -91,61 +127,387 @@
             box-shadow: 0 8px 20px rgba(11, 25, 44, .2);
             background: #152B4D;
         }
+
         /* PAGE HERO */
-        .page-hero{padding:140px 5% 60px;max-width:1200px;margin:0 auto;animation:fadeIn 1s ease-out}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        .page-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent-green);display:block;margin-bottom:1rem}
-        .page-title{font-family:'Playfair Display',serif;font-size:4rem;font-weight:600;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem}
-        .page-subtitle{font-size:1.15rem;color:var(--text-grey);max-width:600px;line-height:1.6}
+        .page-hero {
+            padding: 140px 5% 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-out
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .page-label {
+            font-size: .8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            display: block;
+            margin-bottom: 1rem
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -.02em;
+            margin-bottom: 1.2rem
+        }
+
+        .page-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-grey);
+            max-width: 600px;
+            line-height: 1.6
+        }
+
         /* QUICK CONTACT CARDS */
-        .contact-grid{max-width:1100px;margin:0 auto;padding:0 5% 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-        .contact-card{background:#fff;border-radius:24px;padding:2.5rem 2rem;border:1px solid var(--glass-border);box-shadow:0 8px 24px rgba(11,25,44,.04);transition:all .3s;text-align:center}
-        .contact-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(79,172,254,.1)}
-        .card-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.4rem}
-        .card-icon svg{width:26px;height:26px;stroke-width:1.8}
-        .icon-blue{background:linear-gradient(135deg,rgba(79,172,254,.12),rgba(0,242,254,.12));color:var(--accent-blue)}
-        .icon-purple{background:linear-gradient(135deg,rgba(180,120,255,.12),rgba(255,156,238,.12));color:var(--aura-purple)}
-        .icon-green{background:linear-gradient(135deg,rgba(0,242,254,.12),rgba(79,172,254,.12));color:var(--accent-green)}
-        .contact-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.02em}
-        .contact-card p{font-size:.95rem;color:var(--text-grey);line-height:1.6;margin-bottom:1.2rem}
-        .card-link{display:inline-block;text-decoration:none;font-weight:600;font-size:.92rem;padding:9px 22px;border-radius:30px;transition:all .3s}
-        .card-link-blue{background:rgba(79,172,254,.1);color:var(--accent-blue)}.card-link-blue:hover{background:var(--accent-blue);color:#fff}
-        .card-link-purple{background:rgba(180,120,255,.1);color:var(--aura-purple)}.card-link-purple:hover{background:var(--aura-purple);color:#fff}
-        .card-link-green{background:rgba(0,242,254,.08);color:#00C8D4}.card-link-green:hover{background:var(--accent-green);color:var(--text-dark)}
+        .contact-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5% 4rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem
+        }
+
+        .contact-card {
+            background: #fff;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 24px rgba(11, 25, 44, .04);
+            transition: all .3s;
+            text-align: center
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(79, 172, 254, .1)
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.4rem
+        }
+
+        .card-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke-width: 1.8
+        }
+
+        .icon-blue {
+            background: linear-gradient(135deg, rgba(79, 172, 254, .12), rgba(0, 242, 254, .12));
+            color: var(--accent-blue)
+        }
+
+        .icon-purple {
+            background: linear-gradient(135deg, rgba(180, 120, 255, .12), rgba(255, 156, 238, .12));
+            color: var(--aura-purple)
+        }
+
+        .icon-green {
+            background: linear-gradient(135deg, rgba(0, 242, 254, .12), rgba(79, 172, 254, .12));
+            color: var(--accent-green)
+        }
+
+        .contact-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: .6rem;
+            letter-spacing: -.02em
+        }
+
+        .contact-card p {
+            font-size: .95rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+            margin-bottom: 1.2rem
+        }
+
+        .card-link {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .92rem;
+            padding: 9px 22px;
+            border-radius: 30px;
+            transition: all .3s
+        }
+
+        .card-link-blue {
+            background: rgba(79, 172, 254, .1);
+            color: var(--accent-blue)
+        }
+
+        .card-link-blue:hover {
+            background: var(--accent-blue);
+            color: #fff
+        }
+
+        .card-link-purple {
+            background: rgba(180, 120, 255, .1);
+            color: var(--aura-purple)
+        }
+
+        .card-link-purple:hover {
+            background: var(--aura-purple);
+            color: #fff
+        }
+
+        .card-link-green {
+            background: rgba(0, 242, 254, .08);
+            color: #00C8D4
+        }
+
+        .card-link-green:hover {
+            background: var(--accent-green);
+            color: var(--text-dark)
+        }
+
         /* FAQ */
-        .faq-wrapper{max-width:860px;margin:0 auto;padding:0 5% 4rem}
-        .section-header{text-align:center;margin-bottom:3rem}
-        .section-header-label{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent-blue);display:block;margin-bottom:.8rem}
-        .section-header h2{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:600;letter-spacing:-.02em;line-height:1.15}
-        .faq-item{border-bottom:1px solid var(--glass-border)}
-        .faq-item summary{display:flex;justify-content:space-between;align-items:center;padding:1.8rem 0;font-size:1.15rem;font-weight:600;cursor:pointer;list-style:none;transition:color .3s;letter-spacing:-.2px}
-        .faq-item summary::-webkit-details-marker{display:none}
-        .faq-item summary:hover{color:var(--accent-blue)}
-        .faq-item summary::after{content:'+';color:var(--text-grey);font-size:1.8rem;font-weight:300;transition:transform .3s}
-        .faq-item[open] summary::after{transform:rotate(45deg);color:var(--accent-blue)}
-        .faq-answer{padding-bottom:2rem;color:var(--text-grey);font-size:1.05rem;line-height:1.75;animation:slideDown .3s ease-out}
-        @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+        .faq-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 5% 4rem
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem
+        }
+
+        .section-header-label {
+            font-size: .8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: .8rem
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            line-height: 1.15
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--glass-border)
+        }
+
+        .faq-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.8rem 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            transition: color .3s;
+            letter-spacing: -.2px
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none
+        }
+
+        .faq-item summary:hover {
+            color: var(--accent-blue)
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            color: var(--text-grey);
+            font-size: 1.8rem;
+            font-weight: 300;
+            transition: transform .3s
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+            color: var(--accent-blue)
+        }
+
+        .faq-answer {
+            padding-bottom: 2rem;
+            color: var(--text-grey);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            animation: slideDown .3s ease-out
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
         /* TROUBLESHOOT */
-        .troubleshoot-wrapper{max-width:1100px;margin:0 auto;padding:0 5% 5rem}
-        .trouble-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
-        .trouble-card{background:#fff;border-radius:20px;padding:2rem;border:1px solid var(--glass-border);box-shadow:0 6px 20px rgba(11,25,44,.04);transition:box-shadow .3s}
-        .trouble-card:hover{box-shadow:0 12px 30px rgba(79,172,254,.08)}
-        .trouble-tag{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 12px;border-radius:20px;margin-bottom:1rem}
-        .tag-blue{background:rgba(79,172,254,.1);color:var(--accent-blue)}
-        .tag-purple{background:rgba(180,120,255,.1);color:var(--aura-purple)}
-        .tag-pink{background:rgba(255,156,238,.12);color:#D97199}
-        .tag-green{background:rgba(0,242,254,.1);color:#00A8B5}
-        .trouble-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.7rem;letter-spacing:-.01em}
-        .trouble-card p{font-size:.95rem;color:var(--text-grey);line-height:1.65}
+        .troubleshoot-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5% 5rem
+        }
+
+        .trouble-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem
+        }
+
+        .trouble-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 6px 20px rgba(11, 25, 44, .04);
+            transition: box-shadow .3s
+        }
+
+        .trouble-card:hover {
+            box-shadow: 0 12px 30px rgba(79, 172, 254, .08)
+        }
+
+        .trouble-tag {
+            display: inline-block;
+            font-size: .75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 1rem
+        }
+
+        .tag-blue {
+            background: rgba(79, 172, 254, .1);
+            color: var(--accent-blue)
+        }
+
+        .tag-purple {
+            background: rgba(180, 120, 255, .1);
+            color: var(--aura-purple)
+        }
+
+        .tag-pink {
+            background: rgba(255, 156, 238, .12);
+            color: #D97199
+        }
+
+        .tag-green {
+            background: rgba(0, 242, 254, .1);
+            color: #00A8B5
+        }
+
+        .trouble-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: .7rem;
+            letter-spacing: -.01em
+        }
+
+        .trouble-card p {
+            font-size: .95rem;
+            color: var(--text-grey);
+            line-height: 1.65
+        }
+
         /* EMAIL CTA */
-        .email-cta{background:var(--text-dark);background-image:radial-gradient(circle at 20% 100%,rgba(79,172,254,.15) 0%,transparent 60%),radial-gradient(circle at 80% 0%,rgba(0,242,254,.15) 0%,transparent 60%),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:100% 100%,100% 100%,40px 40px,40px 40px;padding:5rem 5%;text-align:center;margin-top:2rem}
-        .email-cta-inner{max-width:600px;margin:0 auto}
-        .cta-label{color:var(--accent-green);font-size:.85rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:1.5rem;font-weight:700;display:block}
-        .email-cta h2{font-family:'Playfair Display',serif;font-size:3rem;color:#fff;line-height:1.15;margin-bottom:1rem;letter-spacing:-.02em}
-        .email-cta h2 span{font-style:italic;color:var(--accent-blue)}
-        .email-cta p{color:#94A3B8;font-size:1.05rem;margin-bottom:2rem;line-height:1.7}
-        .email-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--text-dark);text-decoration:none;font-weight:700;padding:14px 32px;border-radius:30px;font-size:1rem;transition:all .3s}
-        .email-btn:hover{transform:translateY(-3px);box-shadow:0 15px 35px rgba(255,255,255,.2);background:#F0F4F8}
+        .email-cta {
+            background: var(--text-dark);
+            background-image: radial-gradient(circle at 20% 100%, rgba(79, 172, 254, .15) 0%, transparent 60%), radial-gradient(circle at 80% 0%, rgba(0, 242, 254, .15) 0%, transparent 60%), linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            padding: 5rem 5%;
+            text-align: center;
+            margin-top: 2rem
+        }
+
+        .email-cta-inner {
+            max-width: 600px;
+            margin: 0 auto
+        }
+
+        .cta-label {
+            color: var(--accent-green);
+            font-size: .85rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: block
+        }
+
+        .email-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -.02em
+        }
+
+        .email-cta h2 span {
+            font-style: italic;
+            color: var(--accent-blue)
+        }
+
+        .email-cta p {
+            color: #94A3B8;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            line-height: 1.7
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all .3s
+        }
+
+        .email-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, .2);
+            background: #F0F4F8
+        }
+
         /* FOOTER */
         /* FOOTER */
         .site-footer {
@@ -238,9 +600,49 @@
             transform: translateY(-3px);
         }
 
-        @media(max-width:900px){.nav-links{display:none}.page-title{font-size:2.8rem}.contact-grid{grid-template-columns:1fr}.trouble-grid{grid-template-columns:1fr}.section-header h2{font-size:2.2rem}.email-cta h2{font-size:2.2rem}.footer-container{grid-template-columns:1fr;gap:3rem;text-align:center}.footer-brand,.social-icons{justify-content:center}.footer-desc{margin:0 auto}}
+        @media(max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .page-title {
+                font-size: 2.8rem
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .trouble-grid {
+                grid-template-columns: 1fr
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem
+            }
+
+            .email-cta h2 {
+                font-size: 2.2rem
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center
+            }
+
+            .footer-brand,
+            .social-icons {
+                justify-content: center
+            }
+
+            .footer-desc {
+                margin: 0 auto
+            }
+        }
     </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html" class="nav-brand">
@@ -260,15 +662,18 @@
     <div class="page-hero">
         <span class="page-label">Help Center</span>
         <h1 class="page-title">We're Here to Help</h1>
-        <p class="page-subtitle">Browse common questions, troubleshooting tips, or reach out directly — we're a real team and we respond personally.</p>
+        <p class="page-subtitle">Browse common questions, troubleshooting tips, or reach out directly — we're a real
+            team and we respond personally.</p>
     </div>
 
     <!-- QUICK CONTACT -->
     <div class="contact-grid">
         <div class="contact-card">
             <div class="card-icon icon-blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
                 </svg>
             </div>
             <h3>Email Support</h3>
@@ -277,8 +682,11 @@
         </div>
         <div class="contact-card">
             <div class="card-icon icon-purple">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
                 </svg>
             </div>
             <h3>FAQ</h3>
@@ -287,8 +695,10 @@
         </div>
         <div class="contact-card">
             <div class="card-icon icon-green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="m9 12 2 2 4-4" />
                 </svg>
             </div>
             <h3>Privacy &amp; Legal</h3>
@@ -307,32 +717,44 @@
             <div class="trouble-card">
                 <span class="trouble-tag tag-blue">Breathing Sessions</span>
                 <h3>My exercise stopped mid-session</h3>
-                <p>Mindora automatically pauses if you receive a phone call and resumes when you're ready. If the session ended unexpectedly for another reason, force-quit the app and reopen it. Your progress is saved via Supabase.</p>
+                <p>Mindora automatically pauses if you receive a phone call and resumes when you're ready. If the
+                    session ended unexpectedly for another reason, force-quit the app and reopen it. Your progress is
+                    saved via Supabase.</p>
             </div>
             <div class="trouble-card">
                 <span class="trouble-tag tag-purple">AR Garden</span>
                 <h3>AR Garden won't launch or is lagging</h3>
-                <p>Ensure good lighting in your environment — ARKit requires ambient light to track surfaces. Try pointing your camera at a flat, well-lit floor or table. If issues persist, close background apps and restart Mindora.</p>
+                <p>Ensure good lighting in your environment — ARKit requires ambient light to track surfaces. Try
+                    pointing your camera at a flat, well-lit floor or table. If issues persist, close background apps
+                    and restart Mindora.</p>
             </div>
             <div class="trouble-card">
                 <span class="trouble-tag tag-pink">Account</span>
                 <h3>I didn't receive my OTP login email</h3>
-                <p>Check your spam / junk folder first. OTP emails are sent from a no-reply Supabase address. Ensure you typed your email correctly. If still missing, wait 60 seconds and request a new OTP from the login screen.</p>
+                <p>Check your spam / junk folder first. OTP emails are sent from a no-reply Supabase address. Ensure you
+                    typed your email correctly. If still missing, wait 60 seconds and request a new OTP from the login
+                    screen.</p>
             </div>
             <div class="trouble-card">
                 <span class="trouble-tag tag-green">Sync &amp; Progress</span>
                 <h3>My butterflies / streaks disappeared</h3>
-                <p>This can happen if you log in on a new device while offline. Open the app with an active internet connection to trigger a sync. If data is still missing after 5 minutes, email us with your account email and we'll investigate.</p>
+                <p>This can happen if you log in on a new device while offline. Open the app with an active internet
+                    connection to trigger a sync. If data is still missing after 5 minutes, email us with your account
+                    email and we'll investigate.</p>
             </div>
             <div class="trouble-card">
                 <span class="trouble-tag tag-blue">Analytics</span>
                 <h3>My mood chart isn't showing data</h3>
-                <p>The weekly chart populates after you log at least one mood entry using the 1–5 scale after a session. Complete a session, log your mood, then revisit the Analytics tab. Data may take a moment to refresh.</p>
+                <p>The weekly chart populates after you log at least one mood entry using the 1–5 scale after a session.
+                    Complete a session, log your mood, then revisit the Analytics tab. Data may take a moment to
+                    refresh.</p>
             </div>
             <div class="trouble-card">
                 <span class="trouble-tag tag-purple">Achievements</span>
                 <h3>A badge I earned isn't showing</h3>
-                <p>Badge awards sync with the server. Pull-to-refresh on the Achievements screen or log out and back in to force a sync. If a specific achievement badge still doesn't appear, describe which badge and when you earned it in an email to us.</p>
+                <p>Badge awards sync with the server. Pull-to-refresh on the Achievements screen or log out and back in
+                    to force a sync. If a specific achievement badge still doesn't appear, describe which badge and when
+                    you earned it in an email to us.</p>
             </div>
         </div>
     </div>
@@ -346,35 +768,53 @@
 
         <details class="faq-item">
             <summary>How do I unlock a butterfly?</summary>
-            <div class="faq-answer">Mindora follows a unique 4-session lifecycle: Egg → Caterpillar → Pupa → Butterfly. After completing your 4th micro-reset session in a cycle, you reach the Butterfly stage and permanently add a new, vibrant butterfly to your AR Garden. Start a new cycle immediately after.</div>
+            <div class="faq-answer">Mindora follows a unique 4-session lifecycle: Egg → Caterpillar → Pupa → Butterfly.
+                After completing your 4th micro-reset session in a cycle, you reach the Butterfly stage and permanently
+                add a new, vibrant butterfly to your AR Garden. Start a new cycle immediately after.</div>
         </details>
         <details class="faq-item">
             <summary>Do I need a long meditation session?</summary>
-            <div class="faq-answer">Not at all. Mindora's core is built around 2-minute micro-resets — designed for people who have no time. We also offer 7 Advanced Calming exercises (body scan, progressive muscle relaxation, etc.) for when you want a deeper session, but nothing is mandatory.</div>
+            <div class="faq-answer">Not at all. Mindora's core is built around 2-minute micro-resets — designed for
+                people who have no time. We also offer 7 Advanced Calming exercises (body scan, progressive muscle
+                relaxation, etc.) for when you want a deeper session, but nothing is mandatory.</div>
         </details>
         <details class="faq-item">
             <summary>Is my mood data private?</summary>
-            <div class="faq-answer">Yes, absolutely. Your analytics, emotional trends, and profiles are encrypted and stored securely via Supabase. We never sell your data to third parties, advertisers, or health trackers — ever. You can permanently delete all data from Profile → Delete Account at any time.</div>
+            <div class="faq-answer">Yes, absolutely. Your analytics, emotional trends, and profiles are encrypted and
+                stored securely via Supabase. We never sell your data to third parties, advertisers, or health trackers
+                — ever. You can permanently delete all data from Profile → Delete Account at any time.</div>
         </details>
         <details class="faq-item">
             <summary>Will my exercise pause during a phone call?</summary>
-            <div class="faq-answer">Yes, gracefully. Mindora has Smart Session Pausing built in. When a call comes in, your breathing exercise or calming sound pauses automatically and waits for you to resume when you're done.</div>
+            <div class="faq-answer">Yes, gracefully. Mindora has Smart Session Pausing built in. When a call comes in,
+                your breathing exercise or calming sound pauses automatically and waits for you to resume when you're
+                done.</div>
         </details>
         <details class="faq-item">
             <summary>Can I use Mindora offline?</summary>
-            <div class="faq-answer">Core exercises (breathing, calming activities, guided meditation) are available offline. Your session data is cached locally and synced to the cloud when you reconnect. The AR Garden and mood chart sync require internet for their latest state.</div>
+            <div class="faq-answer">Core exercises (breathing, calming activities, guided meditation) are available
+                offline. Your session data is cached locally and synced to the cloud when you reconnect. The AR Garden
+                and mood chart sync require internet for their latest state.</div>
         </details>
         <details class="faq-item">
             <summary>How do I delete my account?</summary>
-            <div class="faq-answer">Go to Profile tab → scroll to the bottom → tap "Delete Account". This permanently removes all your data (moods, garden, butterflies, badges) from our servers. The action is irreversible. If you change your mind, you'll need to create a fresh account.</div>
+            <div class="faq-answer">Go to Profile tab → scroll to the bottom → tap "Delete Account". This permanently
+                removes all your data (moods, garden, butterflies, badges) from our servers. The action is irreversible.
+                If you change your mind, you'll need to create a fresh account.</div>
         </details>
         <details class="faq-item">
             <summary>Does Mindora replace professional therapy?</summary>
-            <div class="faq-answer">No. Mindora is a general wellness tool designed to help with everyday stress through science-backed breathing and mindfulness techniques. It is not a medical device or a substitute for professional mental health care. If you are experiencing a crisis, please contact a healthcare professional or call emergency services.</div>
+            <div class="faq-answer">No. Mindora is a general wellness tool designed to help with everyday stress through
+                science-backed breathing and mindfulness techniques. It is not a medical device or a substitute for
+                professional mental health care. If you are experiencing a crisis, please contact a healthcare
+                professional or call emergency services.</div>
         </details>
         <details class="faq-item">
             <summary>Which iPhone models are supported?</summary>
-            <div class="faq-answer">Mindora - Personal Mental Wellness Companion is optimized for all modern iPhones running iOS 16 and above, including smaller form factors like iPhone 13 mini. The AR Garden requires an ARKit-compatible device (iPhone 6s or newer). The app is portrait-only to ensure a focused, distraction-free experience.</div>
+            <div class="faq-answer">Mindora - Personal Mental Wellness Companion is optimized for all modern iPhones
+                running iOS 16 and above, including smaller form factors like iPhone 13 mini. The AR Garden requires an
+                ARKit-compatible device (iPhone 6s or newer). The app is portrait-only to ensure a focused,
+                distraction-free experience.</div>
         </details>
     </div>
 
@@ -383,9 +823,14 @@
         <div class="email-cta-inner">
             <span class="cta-label">Still need help?</span>
             <h2>Talk to a <span>real person.</span></h2>
-            <p>We're Pawanpreet &amp; Anirudh — the two developers behind Mindora. Every support email lands directly in our inbox and we respond personally.</p>
+            <p>We're Pawanpreet &amp; Anirudh — the two developers behind Mindora. Every support email lands directly in
+                our inbox and we respond personally.</p>
             <a href="mailto:mindora.icodesquad@gmail.com" class="email-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                </svg>
                 mindora.icodesquad@gmail.com
             </a>
         </div>
@@ -466,4 +911,5 @@
         });
     </script>
 </body>
+
 </html>
