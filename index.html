@@ -1216,6 +1216,10 @@
 
         /* RESPONSIVE */
         @media(max-width:900px) {
+            .logo-subtitle {
+                display: none;
+            }
+
             .hero {
                 flex-direction: column;
                 text-align: center;
@@ -1352,6 +1356,25 @@
                 margin: 0 auto;
             }
         }
+
+        @media(max-width: 480px) {
+            .hero-title { font-size: 2.5rem; }
+            .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
+            .hero-phone { width: 260px; height: 538px; border-width: 8px; }
+            .feature-phone { width: 260px; height: 528px; border-width: 8px; }
+            .feature-main-title { font-size: 2rem; }
+            .features-section-title { font-size: 2rem; }
+            .target-title { font-size: 1.8rem; }
+            .target-subtitle { font-size: 1.4rem; }
+            .screens-title { font-size: 2.2rem; }
+            .team-title { font-size: 2.2rem; }
+            .cta-title { font-size: 2.2rem; }
+            .faq-title { font-size: 2.2rem; }
+            .feature-block, .feature-block.reverse { gap: 2rem; padding: 2rem 0; }
+            .bottom-cta { padding: 3rem 1.5rem; }
+            .app-store-btn { padding: 10px 20px 10px 16px; }
+            .btn-text .large { font-size: 1.2rem; }
+        }
     </style>
 </head>
 
@@ -1360,7 +1383,7 @@
     <nav>
         <div class="nav-brand">
             <img src="logo.jpeg" alt="Mindora Logo" class="nav-logo-img" onerror="this.style.display='none'">
-            <span class="logo">Mindora - Personal Mental Wellness Companion</span>
+            <span class="logo">Mindora<span class="logo-subtitle"> - Personal Mental Wellness Companion</span></span>
         </div>
         <div class="nav-links" id="navLinks">
             <a href="#features">Features</a>
@@ -1855,7 +1878,7 @@
             <div class="footer-col-brand">
                 <div class="footer-brand">
                     <img src="logo.jpeg" alt="Mindora Logo" class="nav-logo-img" onerror="this.style.display='none'">
-                    <span class="logo">Mindora - Personal Mental Wellness Companion</span>
+                    <span class="logo">Mindora<span class="logo-subtitle"> - Personal Mental Wellness Companion</span></span>
                 </div>
                 <p class="footer-desc">A premium, native iOS mental wellness companion. Find profound peace in
                     micro-moments.</p>
