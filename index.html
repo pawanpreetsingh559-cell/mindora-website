@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindora - Personal Mental Wellness Companion</title>
+    <meta name="description"
+        content="Find immediate stress relief in 120 seconds. Mindora blends science-backed breathing, mood tracking, and an AR garden into one premium iOS experience.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #FCF8F5;
+            --accent-blue: #4FACFE;
+            --accent-green: #00F2FE;
+            --aura-purple: #B478FF;
+            --aura-pink: #FF9CEE;
+            --text-dark: #0B192C;
+            --text-grey: #64748B;
+            --glass-bg: rgba(252, 248, 245, 0.88);
+            --glass-border: rgba(11, 25, 44, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-light);
+            background-image:
+                radial-gradient(circle at 15% 20%, rgba(79, 172, 254, .05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(0, 242, 254, .05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(180, 120, 255, .04) 0%, transparent 50%),
+                linear-gradient(rgba(11, 25, 44, .015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(11, 25, 44, .015) 1px, transparent 1px);
+            background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh, 40px 40px, 40px 40px;
+            background-attachment: fixed;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 999;
+            background: var(--glass-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all .3s ease;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: transform .3s;
+        }
+
+        .nav-brand:hover {
+            transform: scale(1.02);
+        }
+
+        .nav-logo-img {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(11, 25, 44, .08);
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+        }
+
+        .nav-links a:not(.nav-cta) {
+            color: var(--text-grey);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: .95rem;
+            transition: color .3s;
+        }
+
+        .nav-links a:not(.nav-cta):hover {
+            color: var(--accent-blue);
+            font-weight: 700 !important;
+        }
+
+        .nav-cta {
+            background: var(--text-dark);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .95rem;
+            padding: 10px 24px;
+            border-radius: 30px;
+            transition: all .3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(11, 25, 44, .2);
+            background: #152B4D;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding-top: 80px;
+            gap: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 550px;
+        }
+
+        .hero-title {
+            font-size: 4.8rem;
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -.04em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-accent {
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-grey);
+            margin-bottom: 3rem;
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #111111;
+            color: #fff;
+            padding: 12px 30px 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all .3s;
+            gap: 14px;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .25);
+            background: #000;
+        }
+
+        .app-store-btn svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .btn-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .btn-text .small {
+            font-size: .8rem;
+            display: block;
+            opacity: .9;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .btn-text .large {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -.5px;
+            line-height: 1.1;
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+            padding: 0 32px;
+            border-radius: 50px;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            font-size: 1.15rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .3s;
+            background: transparent;
+        }
+
+        .explore-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+            stroke-width: 2;
+            transition: transform .3s;
+        }
+
+        .explore-btn:hover {
+            background: rgba(79, 172, 254, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(79, 172, 254, 0.15);
+        }
+
+        .explore-btn:hover svg {
+            transform: translateY(4px);
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-phone {
+            width: 290px;
+            height: 600px;
+            background: #fff;
+            border: 12px solid #000;
+            border-radius: 50px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .15);
+            animation: heroFloat 7s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .hero-phone img {
+            width: 100%;
+            height: auto;
+            border-radius: 38px;
+            animation: scrollScreen 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+        }
+
+        @keyframes scrollScreen {
+            0%, 15% {
+                transform: translateY(0);
+            }
+            85%, 100% {
+                transform: translateY(calc(-100% + 576px));
+            }
+        }
+
+        @keyframes heroFloat {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-24px);
+            }
+        }
+
+        .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            background: #F0F4F8;
+            font-weight: 500;
+            color: var(--text-grey);
+        }
+
+        /* FEATURES */
+        .features-wrapper {
+            margin-bottom: 2rem;
+            padding-top: 6rem;
+        }
+
+        .feature-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8rem;
+            padding: 7rem 0;
+        }
+
+        .feature-block.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .feature-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .feature-visual::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(180, 120, 255, .1) 0%, rgba(79, 172, 254, .1) 40%, transparent 70%);
+            z-index: -1;
+            top: 10%;
+            left: 10%;
+            filter: blur(40px);
+        }
+
+        .feature-phone {
+            width: 320px;
+            height: 650px;
+            background: #fff;
+            border: 14px solid var(--text-dark);
+            border-radius: 54px;
+            box-shadow: 0 40px 80px rgba(11, 25, 44, .15);
+            overflow: hidden;
+            animation: float-simple 7s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        .phone-slider .slider-track {
+            display: flex;
+            width: 200%;
+            height: 100%;
+            animation: screenSlide 8s ease-in-out infinite;
+        }
+
+        .slider-track img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        @keyframes screenSlide {
+
+            0%,
+            45% {
+                transform: translateX(0);
+            }
+
+            50%,
+            95% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float-simple {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-18px);
+            }
+        }
+
+        .feature-content {
+            flex: 1;
+            max-width: 520px;
+            opacity: 0;
+            transform: translateX(80px);
+            transition: opacity 1s cubic-bezier(.25, .8, .25, 1), transform 1s cubic-bezier(.25, .8, .25, 1);
+        }
+
+        .feature-block.reverse .feature-content {
+            transform: translateX(-80px);
+        }
+
+        .feature-content.is-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .feature-main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            letter-spacing: -.03em;
+        }
+
+        .feature-desc {
+            font-size: 1.1rem;
+            color: var(--text-grey);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .features-section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            letter-spacing: -.03em;
+        }
+
+        .sub-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            padding: 1.2rem;
+            border-radius: 24px;
+            transition: all .4s;
+            border: 1px solid transparent;
+        }
+
+        .sub-feature:hover {
+            background: #fff;
+            border-color: var(--glass-border);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, .08);
+            transform: translateX(10px);
+        }
+
+        .sf-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            color: var(--text-dark);
+            transition: transform .3s;
+        }
+
+        .sf-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke-width: 1.75;
+        }
+
+        .sub-feature:hover .sf-icon {
+            transform: scale(1.1);
+            color: var(--accent-blue);
+        }
+
+        .sf-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: .3rem;
+            letter-spacing: -.3px;
+        }
+
+        .sf-text p {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            line-height: 1.5;
+        }
+
+        /* TARGET AUDIENCE */
+        .target-wrapper {
+            padding: 8rem 0;
+            background: #ffffff;
+            margin: 4rem 0 0;
+        }
+
+        .target-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .target-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .target-label,
+        .tech-label,
+        .team-label,
+        .faq-label {
+            font-size: .8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .target-label {
+            color: var(--text-grey);
+        }
+
+        .tech-label,
+        .team-label {
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        .target-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+        }
+
+        .target-highlight,
+        .tech-highlight,
+        .team-highlight,
+        .cta-title-light {
+            font-style: italic;
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        .target-subtitle {
+            display: block;
+            margin-top: .8rem;
+            font-size: 2.2rem;
+            color: var(--text-grey);
+            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .target-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .03);
+            border: 1px solid rgba(0, 0, 0, .02);
+            transition: transform .3s, box-shadow .3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-blue {
+            background: linear-gradient(180deg, rgba(79, 172, 254, .05) 0%, #fff 30%);
+            border-bottom: 3px solid var(--accent-blue);
+            border-top: 3px solid var(--accent-blue);
+        }
+
+        .card-blue:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, .12);
+        }
+
+        .card-blue .tc-icon {
+            color: var(--accent-blue);
+        }
+
+        .card-purple {
+            background: linear-gradient(180deg, rgba(180, 120, 255, .05) 0%, #fff 30%);
+            border-bottom: 3px solid var(--aura-purple);
+            border-top: 3px solid var(--aura-purple);
+        }
+
+        .card-purple:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(180, 120, 255, .12);
+        }
+
+        .card-purple .tc-icon {
+            color: var(--aura-purple);
+        }
+
+        .card-pink {
+            background: linear-gradient(180deg, rgba(255, 156, 238, .1) 0%, #fff 30%);
+            border-bottom: 3px solid var(--aura-pink);
+            border-top: 3px solid var(--aura-pink);
+        }
+
+        .card-pink:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 156, 238, .2);
+        }
+
+        .card-pink .tc-icon {
+            color: var(--aura-pink);
+        }
+
+        .card-mint {
+            background: linear-gradient(180deg, rgba(0, 242, 254, .05) 0%, #fff 30%);
+            border-bottom: 3px solid var(--accent-green);
+            border-top: 3px solid var(--accent-green);
+        }
+
+        .card-mint:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 242, 254, .12);
+        }
+
+        .card-mint .tc-icon {
+            color: var(--accent-green);
+        }
+
+        .tc-icon {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 1.5rem;
+        }
+
+        .tc-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke-width: 1.5;
+        }
+
+        .tc-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: .8rem;
+            letter-spacing: -.01em;
+        }
+
+        .tc-desc {
+            font-size: .95rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* SCREENS SHOWCASE */
+        .screens-wrapper {
+            padding: 4rem 0 5rem;
+            background: transparent;
+        }
+
+        .screens-section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .screens-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .screens-label {
+            font-size: .8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-blue);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .screens-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+            color: var(--text-dark);
+        }
+
+        .screens-title em {
+            font-style: italic;
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            align-items: stretch;
+        }
+
+        .screen-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .screen-mockup {
+            width: 100%;
+            max-width: 240px;
+            aspect-ratio: 1 / 2.05;
+            background: #fff;
+            border: 10px solid var(--text-dark);
+            border-radius: 36px;
+            box-shadow: 0 30px 60px rgba(11, 25, 44, .1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .screen-mockup:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 80px rgba(11, 25, 44, .15);
+        }
+
+        .screen-mockup img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 26px;
+        }
+
+        .screen-col h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: .8rem;
+            color: var(--text-dark);
+            letter-spacing: -.01em;
+        }
+
+        .screen-col p {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .team-wrapper {
+            padding: 8rem 0;
+            text-align: center;
+            background: #ffffff;
+        }
+
+        .team-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .team-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+            margin-bottom: 4rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 3.5rem 2rem;
+            border: 1.5px solid var(--accent-blue);
+            /* opaque blue outline */
+            box-shadow: 0 10px 30px rgba(79, 172, 254, .06);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(11, 25, 44, .06);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(79, 172, 254, .08);
+            border: 2px solid rgba(79, 172, 254, .4);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .team-avatar svg {
+            width: 32px;
+            height: 32px;
+            stroke-width: 1.5;
+        }
+
+        .team-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: .5rem;
+            letter-spacing: -.01em;
+        }
+
+        .team-role {
+            font-size: .95rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        /* TECH */
+        .tech-wrapper {
+            padding: 4rem 0;
+            background: transparent;
+            margin-bottom: 4rem;
+        }
+
+        .tech-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .tech-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -.02em;
+        }
+
+        .tech-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: rgba(79, 172, 254, 0.2);
+            gap: 1px;
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(11, 25, 44, .04);
+        }
+
+        .tech-card {
+            background: #fff;
+            padding: 1.5rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: background .3s;
+        }
+
+        .tech-card:hover {
+            background: #F0F8FF;
+            /* Stronger unified light blue */
+        }
+
+        .tech-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: rgba(79, 172, 254, .1);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .tech-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 2;
+        }
+
+        .tech-card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: .6rem;
+            letter-spacing: -.01em;
+        }
+
+        .tech-card-desc {
+            font-size: .95rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq-wrapper {
+            background: #ffffff;
+            padding: 6rem 0;
+        }
+
+        .faq-section {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 6rem;
+        }
+
+        .faq-left {
+            flex: 1;
+            max-width: 400px;
+            position: sticky;
+            top: 120px;
+        }
+
+        .faq-label {
+            color: var(--accent-blue);
+            font-weight: 800;
+        }
+
+        .faq-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            letter-spacing: -.04em;
+        }
+
+        .faq-contact p {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+            margin-bottom: .5rem;
+        }
+
+        .faq-contact a {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: .3s;
+            word-break: break-all;
+        }
+
+        .faq-contact a:hover {
+            opacity: 0.8;
+        }
+
+        .faq-right {
+            flex: 1.5;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .faq-item summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            transition: color .3s;
+            letter-spacing: -.3px;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary:hover {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            color: var(--text-grey);
+            font-size: 2rem;
+            font-weight: 300;
+            transition: transform .3s;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+            color: var(--accent-blue);
+        }
+
+        .faq-answer {
+            padding-bottom: 2.5rem;
+            color: var(--text-grey);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            padding-right: 2rem;
+            animation: slideDown .3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CTA */
+        .bottom-cta {
+            background: var(--text-dark);
+            background-image: radial-gradient(circle at 20% 100%, rgba(79, 172, 254, .15) 0%, transparent 60%), radial-gradient(circle at 80% 0%, rgba(180, 120, 255, .15) 0%, transparent 60%), linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            width: 100%;
+            padding: 5rem 2rem;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .cta-label {
+            color: var(--accent-green);
+            font-size: .85rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-title {
+            font-size: 4.5rem;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            letter-spacing: -.03em;
+        }
+
+        .cta-title-dark {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .cta-title-light {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .cta-desc {
+            font-size: 1.1rem;
+            color: #94A3B8;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .app-store-btn-light {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            color: var(--text-dark);
+            padding: 14px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all .3s;
+            gap: 12px;
+        }
+
+        .app-store-btn-light:hover {
+            background: #F0F4F8;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, .2);
+        }
+
+        /* FOOTER */
+        .site-footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 6rem 5% 4rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr;
+            gap: 4rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: transform .3s;
+        }
+
+        .footer-brand:hover {
+            transform: scale(1.02);
+        }
+
+        .footer-desc {
+            color: var(--text-grey);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 350px;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -.3px;
+        }
+
+        .footer-col-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .footer-col-links a {
+            color: var(--text-grey);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color .2s;
+            font-weight: 500;
+        }
+
+        .footer-col-links a:hover {
+            color: var(--text-dark);
+        }
+
+        .footer-email {
+            color: var(--text-grey);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-email a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-grey);
+            transition: all .3s;
+            cursor: pointer;
+        }
+
+        .social-icons svg:hover {
+            fill: var(--text-dark);
+            transform: translateY(-3px);
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 3rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .feature-block,
+            .feature-block.reverse {
+                flex-direction: column;
+                gap: 4rem;
+                padding: 4rem 0;
+            }
+
+            .target-title {
+                font-size: 2.5rem;
+            }
+
+            .target-subtitle {
+                font-size: 1.6rem;
+            }
+
+            .target-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screens-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .screens-title {
+                font-size: 3rem;
+            }
+
+            .features-section-title {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .team-title {
+                font-size: 2.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid-container {
+                grid-template-columns: 1fr;
+                border-radius: 20px;
+            }
+
+            .faq-wrapper {
+                padding: 4rem 0;
+            }
+
+            .faq-section {
+                flex-direction: column;
+                gap: 3rem;
+            }
+
+            .faq-left {
+                position: static;
+                max-width: 100%;
+            }
+
+            .faq-title {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+            }
+
+            .cta-title {
+                font-size: 3rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .footer-brand,
+            .social-icons {
+                justify-content: center;
+            }
+
+            .footer-desc {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-brand">
+            <img src="logo.jpeg" alt="Mindora Logo" class="nav-logo-img" onerror="this.style.display='none'">
+            <span class="logo">Mindora - Personal Mental Wellness Companion</span>
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms-and-conditions.html">Terms</a>
+            <a href="#download" class="nav-cta">Download</a>
+        </div>
+    </nav>
+
+    <div class="container hero">
+        <div class="hero-text">
+            <h1 class="hero-title" id="download">Breathe.<br><span class="hero-accent">Relieve.</span><br>Transform.
+            </h1>
+            <p class="hero-subtitle">You don't need a 30-minute meditation to find peace. Achieve real emotional
+                regulation in exactly 120 seconds — and watch your progress bloom.</p>
+            <div class="hero-buttons">
+                <a href="#" class="app-store-btn">
+                    <svg width="24" height="24" viewBox="0 0 384 512" fill="white">
+                        <path
+                            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.9 90.1-85 102.8-111.9-57.1-31.2-61.9-72.2-61.9-98.7M246.5 75.6c17.5-21.4 28.5-50.4 25.3-75.6-21.2 1-52.2 14.5-70.1 35.6-15.5 17.3-28.7 47.6-24.8 71.9 23.6 1.7 52.1-10.5 69.6-31.9" />
+                    </svg>
+                    <div class="btn-text">
+                        <span class="small">Download on the</span>
+                        <span class="large">App Store</span>
+                    </div>
+                </a>
+                <a href="#features" class="explore-btn">
+                    Explore Features
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M12 5v14M19 12l-7 7-7-7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-phone">
+                <img src="mindora-home-screen-mockup.jpeg" alt="Mindora App Home Screen"
+                    onerror="this.outerHTML='<div class=\'placeholder\'>App Screenshot</div>'">
+            </div>
+        </div>
+    </div>
+
+    <div class="container features-wrapper" id="features">
+        <h2 class="features-section-title">What do we offer</h2>
+        <div class="feature-block">
+            <div class="feature-visual">
+                <div class="feature-phone phone-slider">
+                    <div class="slider-track">
+                        <img src="mindora-guided-breathing-feature.jpeg" alt="Breathing Exercises"
+                            onerror="this.style.display='none'">
+                        <img src="mindora-guided-breathing-feature-2.jpeg" alt="Breathing Session"
+                            onerror="this.src='mindora-guided-breathing-feature.jpeg'">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-content">
+                <h2 class="feature-main-title">2-Minute Calming Activities</h2>
+                <p class="feature-desc">Immediate stress relief designed for fast-paced lifestyles. Real emotional
+                    regulation without committing to long, intimidating sessions.</p>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M17 5v14M22 10v4M7 5v14M2 10v4" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Breath & Sound Therapy</h4>
+                        <p>Calm your racing mind using guided deep breathing rhythms paired with peaceful, immersive
+                            nature sounds.</p>
+                    </div>
+                </div>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Physical Tension Release</h4>
+                        <p>Soothe tired eyes and release built-up stress with guided shoulder drops and eye relaxations
+                            designed for screen fatigue.</p>
+                    </div>
+                </div>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 11V6a2 2 0 0 0-4 0v4" />
+                            <path d="M14 10V4a2 2 0 0 0-4 0v6" />
+                            <path d="M10 10.5V3a2 2 0 0 0-4 0v9" />
+                            <path
+                                d="M8 12V7a2 2 0 0 0-4 0v8.5c0 3 2.5 5.5 5.5 5.5h3.2c1.5 0 2.8-.8 3.4-2l2.3-4.6c.4-.9-.1-2-1-2.2l-4.5-1.2Z" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Mindful Grounding</h4>
+                        <p>Find stillness through short, focused meditations and tactile finger rhythm exercises for
+                            gentle self-massage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-block reverse">
+            <div class="feature-visual">
+                <div class="feature-phone phone-slider">
+                    <div class="slider-track">
+                        <img src="mindora-ar-butterfly-garden-feature.jpeg" alt="AR Garden"
+                            onerror="this.style.display='none'">
+                        <img src="mindora-ar-butterfly-garden-feature-2.jpeg" alt="AR Garden Progress"
+                            onerror="this.src='mindora-ar-butterfly-garden-feature.jpeg'">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-content">
+                <h2 class="feature-main-title">Interactive 3D AR Sanctuary</h2>
+                <p class="feature-desc">A gamification engine that rewards consistency without rigid streaks. Watch your
+                    personal sanctuary come alive with every session.</p>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>The Evolution Lifecycle</h4>
+                        <p>Progress through a calming visual journey — Egg → Caterpillar → Pupa → Butterfly — powered by
+                            your sessions.</p>
+                    </div>
+                </div>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
+                            <path d="M20 3v4" />
+                            <path d="M22 5h-4" />
+                            <path d="M4 17v2" />
+                            <path d="M5 18H3" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Earn Your Butterflies</h4>
+                        <p>Complete your 4th session to reach Butterfly stage and permanently unlock a new, vibrant
+                            butterfly in your AR Garden.</p>
+                    </div>
+                </div>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Spatial AR Interaction</h4>
+                        <p>Project your garden into your room using Apple ARKit. Pinch-to-zoom and two-finger rotation
+                            included.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-block">
+            <div class="feature-visual">
+                <div class="feature-phone phone-slider">
+                    <div class="slider-track">
+                        <img src="mindora-mood-analytics-feature.jpeg" alt="Mood Analytics"
+                            onerror="this.style.display='none'">
+                        <img src="mindora-mood-analytics-feature-2.jpeg" alt="Mood History"
+                            onerror="this.src='mindora-mood-analytics-feature.jpeg'">
+                    </div>
+                </div>
+            </div>
+            <div class="feature-content">
+                <h2 class="feature-main-title">Mood Analytics & Achievements</h2>
+                <p class="feature-desc">Build profound emotional self-awareness. Track how your 2-minute micro-habits
+                    correlate with your mental state over time.</p>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Frictionless Logging</h4>
+                        <p>Log your mood on a simple 1–5 scale immediately after any reset activity. Takes under 5
+                            seconds.</p>
+                    </div>
+                </div>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10" />
+                            <line x1="12" y1="20" x2="12" y2="4" />
+                            <line x1="6" y1="20" x2="6" y2="14" />
+                            <line x1="2" y1="20" x2="22" y2="20" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Visual Trajectory</h4>
+                        <p>Encrypted weekly charts mapping your emotional trends against your breathing and relaxation
+                            habits.</p>
+                    </div>
+                </div>
+                <div class="sub-feature">
+                    <div class="sf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7" />
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                        </svg></div>
+                    <div class="sf-text">
+                        <h4>Minimalist Badges</h4>
+                        <p>Elegantly designed achievement badges for milestones — no tier labels, just clean
+                            acknowledgment of your progress.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="target-wrapper">
+        <div class="target-section">
+            <div class="target-header">
+                <span class="target-label">BUILT FOR</span>
+                <h2 class="target-title">
+                    If you've ever thought<br>
+                    <span class="target-highlight">"I don't have time to relax"</span><br>
+                    <span class="target-subtitle">this was built for you.</span>
+                </h2>
+            </div>
+            <div class="target-grid">
+                <div class="target-card card-blue">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                        </svg></div>
+                    <h3 class="tc-title">Students</h3>
+                    <p class="tc-desc">Exams. Deadlines. Social anxiety. Two minutes between classes can genuinely reset
+                        your nervous system.</p>
+                </div>
+                <div class="target-card card-purple">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                        </svg></div>
+                    <h3 class="tc-title">Young Professionals</h3>
+                    <p class="tc-desc">Back-to-back calls, constant output pressure. Mindora fits in the gaps your
+                        calendar doesn't see.</p>
+                </div>
+                <div class="target-card card-pink">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg></div>
+                    <h3 class="tc-title">Anxiety Sufferers</h3>
+                    <p class="tc-desc">Not therapy. A daily practice that builds your relationship with calm — one
+                        breath at a time.</p>
+                </div>
+                <div class="target-card card-mint">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg></div>
+                    <h3 class="tc-title">Busy People</h3>
+                    <p class="tc-desc">No time for 30-minute sessions. Two minutes is genuinely enough to shift your
+                        state.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screens-wrapper">
+        <div class="screens-section">
+            <div class="screens-header">
+                <span class="screens-label">INSIDE THE APP</span>
+                <h2 class="screens-title">Experience every<br><em>calming screen.</em></h2>
+            </div>
+            <div class="screens-grid">
+                <div class="screen-col">
+                    <div class="screen-mockup">
+                        <img src="mindora-guided-breathing-feature.jpeg" alt="Quick Activities">
+                    </div>
+                    <h3>Quick Activities</h3>
+                    <p>Choose from a variety of bite-sized activities. Deep breathing, calming sounds, meditation, or
+                        finger tapping — whatever you need right now.</p>
+                </div>
+                <div class="screen-col">
+                    <div class="screen-mockup">
+                        <img src="inside2.jpeg" alt="Science-Backed">
+                    </div>
+                    <h3>Science-Backed</h3>
+                    <p>Access advanced calming methods like the Physiological Sigh or PMR. Each technique is backed by
+                        clinical research and clearly explained.</p>
+                </div>
+                <div class="screen-col">
+                    <div class="screen-mockup">
+                        <img src="inside3.jpeg" alt="My Garden">
+                    </div>
+                    <h3>My Garden</h3>
+                    <p>Collect butterflies from your daily mood check-ins. Watch them populate and breathe life into
+                        your personal serene sanctuary.</p>
+                </div>
+                <div class="screen-col">
+                    <div class="screen-mockup">
+                        <img src="inside4.jpeg" alt="Earn Rewards">
+                    </div>
+                    <h3>Earn Rewards</h3>
+                    <p>Grow beautiful butterflies and build your personal garden as you stay consistent. Turn your
+                        mental wellness routine into an achievable game.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-wrapper">
+        <div class="team-section">
+            <div class="target-header">
+                <span class="team-label">THE TEAM</span>
+                <h2 class="team-title">Built with care by <span class="team-highlight">two developers.</span></h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg></div>
+                    <h3 class="team-name">Pawanpreet Singh</h3>
+                    <p class="team-role">iOS Developer & UI/UX</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                        </svg></div>
+                    <h3 class="team-name">Anirudh Chaudhary</h3>
+                    <p class="team-role">iOS Developer & UI/UX</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-wrapper">
+        <div class="tech-section">
+            <div class="tech-header">
+                <span class="tech-label">TECHNOLOGY</span>
+                <h2 class="tech-title">Built for <span class="tech-highlight">real-world</span> reliability.</h2>
+            </div>
+            <div class="tech-grid-container">
+                <div class="tech-card">
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+                        </svg></div>
+                    <h3 class="tech-card-title">Cloud-Backed Sync</h3>
+                    <p class="tech-card-desc">Your mood logs, streaks, and garden — securely synced via Supabase across
+                        all sessions.</p>
+                </div>
+                <div class="tech-card center-col">
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                            <line x1="12" y1="18" x2="12.01" y2="18" />
+                        </svg></div>
+                    <h3 class="tech-card-title">iOS-Native</h3>
+                    <p class="tech-card-desc">Built ground-up for iPhone. Smooth animations, safe-area aware, and
+                        portrait-locked for focus.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                        </svg></div>
+                    <h3 class="tech-card-title">AR Mindfulness</h3>
+                    <p class="tech-card-desc">An immersive AR garden that grows with your consistency — pinch, rotate,
+                        and make it yours.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg></div>
+                    <h3 class="tech-card-title">Privacy by Default</h3>
+                    <p class="tech-card-desc">Secure OTP auth and full account deletion on demand. Your data stays
+                        yours, always.</p>
+                </div>
+                <div class="tech-card center-col">
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" y1="19" x2="12" y2="22" />
+                        </svg></div>
+                    <h3 class="tech-card-title">Guided Audio</h3>
+                    <p class="tech-card-desc">Science-backed breathing with real-time voice guidance. Auto-pauses during
+                        phone calls.</p>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7" />
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                        </svg></div>
+                    <h3 class="tech-card-title">Achievement System</h3>
+                    <p class="tech-card-desc">Milestone badges and streak rewards that keep you motivated to show up
+                        every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-wrapper">
+        <div class="container faq-section" id="faq">
+            <div class="faq-left">
+                <span class="faq-label">FAQ</span>
+                <h2 class="faq-title">Frequently<br>Asked<br>Questions</h2>
+                <div class="faq-contact">
+                    <p>Still have questions?</p>
+                    <a href="mailto:mindora.icodesquad@gmail.com">mindora.icodesquad@gmail.com</a>
+                </div>
+            </div>
+            <div class="faq-right">
+                <details class="faq-item">
+                    <summary>How do I unlock a butterfly?</summary>
+                    <div class="faq-answer">Mindora follows a unique 4-session lifecycle. You start as an Egg, progress
+                        to a
+                        Caterpillar, then a Pupa. After completing your 4th micro-reset session, you reach the Butterfly
+                        stage and permanently add a new butterfly to your AR Garden!</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I have to do long meditations?</summary>
+                    <div class="faq-answer">Not at all. Mindora was built specifically for people who don't have time
+                        for
+                        30-minute sessions. Our core toolkit focuses entirely on 2-minute micro-resets. We also offer 7
+                        Advanced Calming exercises for deeper sessions when you want them.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Is my personal mood data private?</summary>
+                    <div class="faq-answer">Absolutely. Your analytics, emotional trends, and profiles are encrypted
+                        securely via Supabase. We never sell data to third parties, health trackers, or ad brokers. You
+                        can
+                        delete all your data permanently from the Profile tab at any time.</div>
+                </details>
+                <details class="faq-item">
+                    <summary>Will my exercise stop if someone calls me?</summary>
+                    <div class="faq-answer">Yes, gracefully. Mindora features Smart Session Pausing. If you receive a
+                        phone
+                        call, your breathing exercise or calming sound seamlessly pauses and waits for you to resume
+                        when
+                        you're ready.</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="bottom-cta">
+        <div class="container">
+            <div class="cta-label">Begin</div>
+            <h2 class="cta-title">
+                <span class="cta-title-dark">Two minutes.</span><br>
+                <span class="cta-title-light">Start tonight.</span>
+            </h2>
+            <p class="cta-desc">No viral moment. Just a well-made app for people who want to feel a little better — and
+                are willing to try for 120 seconds.</p>
+            <a href="#" class="app-store-btn-light">
+                <svg width="26" height="26" viewBox="0 0 384 512" fill="var(--text-dark)">
+                    <path
+                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.3 48.6-.9 90.1-85 102.8-111.9-57.1-31.2-61.9-72.2-61.9-98.7M246.5 75.6c17.5-21.4 28.5-50.4 25.3-75.6-21.2 1-52.2 14.5-70.1 35.6-15.5 17.3-28.7 47.6-24.8 71.9 23.6 1.7 52.1-10.5 69.6-31.9" />
+                </svg>
+                <div class="btn-text">
+                    <span class="small" style="color:#64748B;">Download on the</span>
+                    <span class="large" style="color:var(--text-dark);">App Store</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col-brand">
+                <div class="footer-brand">
+                    <img src="logo.jpeg" alt="Mindora Logo" class="nav-logo-img" onerror="this.style.display='none'">
+                    <span class="logo">Mindora - Personal Mental Wellness Companion</span>
+                </div>
+                <p class="footer-desc">A premium, native iOS mental wellness companion. Find profound peace in
+                    micro-moments.</p>
+            </div>
+            <div>
+                <h4 class="footer-heading">Quick Links</h4>
+                <div class="footer-col-links">
+                    <a href="#features">Features</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="support.html">Support</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+                </div>
+            </div>
+            <div class="footer-col-contact">
+                <h4 class="footer-heading">Contact Us</h4>
+                <p class="footer-email">Email: <a
+                        href="mailto:mindora.icodesquad@gmail.com">mindora.icodesquad@gmail.com</a></p>
+                <div class="social-icons">
+                    <svg viewBox="0 0 496 512">
+                        <path
+                            d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z" />
+                    </svg>
+                    <svg viewBox="0 0 512 512">
+                        <path
+                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div
+            style="max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+            <p style="color:var(--text-grey);font-size:.9rem;">© 2026 Mindora - Personal Mental Wellness Companion
+                &middot; iCODE SQUAD. All rights reserved.</p>
+            <div style="display:flex;gap:1.5rem;">
+                <a href="privacy.html"
+                    style="color:var(--text-grey);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;"
+                    onmouseover="this.style.color='var(--text-dark)'"
+                    onmouseout="this.style.color='var(--text-grey)'">Privacy Policy</a>
+                <a href="terms-and-conditions.html"
+                    style="color:var(--text-grey);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;"
+                    onmouseover="this.style.color='var(--text-dark)'"
+                    onmouseout="this.style.color='var(--text-grey)'">Terms &amp; Conditions</a>
+                <a href="support.html"
+                    style="color:var(--text-grey);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s;"
+                    onmouseover="this.style.color='var(--text-dark)'"
+                    onmouseout="this.style.color='var(--text-grey)'">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.feature-content').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
